@@ -1,4 +1,3 @@
-site
+Django definitions for mechanicalscribe.com
 ====
 
-Django files for mechanicalscribe.com

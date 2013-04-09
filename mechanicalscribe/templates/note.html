@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+<!-- home {% now "jS F Y H:i" %} -->
+{% block title %}Mechanical Scribe - {{ note.title }}{% endblock %}
+{% block content %}
+    <h1>{{ note.title}}</h1>
+    <div>
+	{% if note.author != "blank" %}
+        {{ note.author }}
+	{% endif %}
+	{{ note.body|safe }}
+	</div>
+{% endblock %}

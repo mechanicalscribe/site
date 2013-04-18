@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Mechanical Scribe - {{ note.title }}{% endblock %}
+{% block extrahead %}
+{{ project.extra_head|safe }}
+<script type="text/javascript">
+/*
+    $(document).ready(function() {
+		w = 250 + parseInt({{ project.page_width }});
+		$('div.page').css("width",w+"px");
+	});
+*/
+</script>
+
+{% endblock %}
+
+{% block content %}
+	<div style="width: {{ project.page_width }}px">
+		{% if project.title != "blank" %}
+		<h1>{{ project.title|safe}}</h1>
+		{% endif %}
+		{{ project.intro|safe }}
+		<div style="text-align: right">{{ project.credit|safe }}</div>
+		{{ project.code|safe }}
+		<div>
+			{% for category in project.category.all %}
+				{% if not forloop.last %}
+					{{ category }}, 
+				{% else %}
+					{{ category }}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

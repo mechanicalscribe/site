@@ -11,46 +11,44 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href="{{ MEDIA_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ MEDIA_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
+        <!--[if lt IE 9]>
+            <script src="{{ MEDIA_URL }js/vendor/html5shiv.js"></script>
+        <![endif]-->
+
+        <!--
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/normalize.css">
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/main.css">
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/scribe.css">    
+        -->
+        
         <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Bitter:400,700|Kameron:400,700|Crete+Round:400,400italic|Tienne:400,700,900|Volkhov:400,700' rel='stylesheet' type='text/css'>
         <script src="{{ MEDIA_URL }}js/vendor/modernizr-2.6.2.min.js"></script>
-        <style>
-{% block css %}{% endblock %}            
-        </style>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <!-- Add your site or application content here -->
-        <div id="main">
-            <div class="banner">
-                <a class="header" href="http://www.mechanicalscribe.com/"><img src="{{ MEDIA_URL }}img/site/scribe-banner-800.png" /></a>
-                <div class="kicker"><span class="">language</span> + code</div>
-            </div>            
+        <div class="banner">
+            <a class="header" href="http://www.mechanicalscribe.com/"><img src="{{ MEDIA_URL }}img/site/scribe-banner-800.png" /></a>
+            <div class="kicker"><span class="">language</span> + code</div>
+        </div>            
+        <div class='navbar navbar-inverse'>
+            <div class='nav-collapse' style="height: auto;">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+					<li><a href="https://github.com/mechanicalscribe">Code</a></li>
+					<li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+        <!--
             <div class="page">
     			<div class="left_rail">
-	        		<div class="topmenu">
-						<div class="menuitem"><a class="menu" href="/">Home</a></div>
-    					<div class="menuitem"><a class="menu" href="/blog">Notes</a></div>
-						<div class="menuitem"><a class="menu" href="https://github.com/mechanicalscribe">Code</a></div>
-    					<div class="menuitem"><a class="menu" href="/portfolio">Clips</a></div>
-						<div class="menuitem"><a class="menu" href="/contact">About</a></div>
-						<div class="clearing"></div>
-					</div>
-                    <!--
-					<div class="left_header">Shortcuts</div>
-						{% for post in blog_posts %}
-						<div class="blog_rail">
-							<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-							<div style="color: #999999; margin-left: 20px">{{ post.publish|date:"M j" }}.</div>
-						</div>
-						{% endfor %}
-                    </div>
-                    -->
 				</div>
     			<div class="right_rail">	
     				<div class="clearing"></div>
@@ -58,7 +56,7 @@
     					{% block content %}{% endblock %}
     				</div>
     			</div>
-			</div>
+			</div>-->
 		</div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{ MEDIA_URL }}js/vendor/jquery-1.9.1.min.js"><\/script>')</script>

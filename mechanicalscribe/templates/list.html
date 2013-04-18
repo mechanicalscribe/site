@@ -9,10 +9,9 @@
 {% block content %}
     {% for note in notes|dictsortreversed:"published" %}
     <div class="post">
-        <div class="headline"><a href="/notes/{{ note.slug }}">{{ note.title|safe }}</a></div>
+    	<div class="headline"><a href="/notes/{{ note.slug }}">{{ note.title|safe }}</a></div>
         <div id="pubbed_at" class="date">{{ note.published|date:"F j, Y" }}</div>
-        <div id="teaser">{{ note.teaser|safe }}</div>
-        <div id="bodytext">{{ note.body|safe }}</div>
+        <div id="bodytext">{{ note.teaser|safe }}</div>
 	</div>
 	{% endfor %}  
 {% endblock %}

@@ -1,14 +1,17 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
+
 from mechanicalscribe.views import *
 from mechanicalscribe.settings import DEBUG, MEDIA_ROOT, MEDIA_URL
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^$', 'mechanicalscribe.views.home', name='home'),
-    url(r'^notes/([A-z0-9_-]+)/$', get_note),
-    url(r'^controlcenter/', include(admin.site.urls)),
+    (r'^$', get_home),
+    (r'^notes/([A-z0-9_-]+)/$', get_note),
+    (r'^controlcenter/', include(admin.site.urls)),
+    (r'^about|contact/$', TemplateView.as_view(template_name="about.html")),
+    (r'^([A-z0-9_-]+)/$', get_sticky),
     
     #url(r'^mechanicalscribe/', include('mechanicalscribe.mechanicalscribe.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:

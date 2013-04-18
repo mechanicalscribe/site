@@ -123,11 +123,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.staticfiles',
     'pagedown',
-    #'mechanicalscribe.site',
-    #'mechanicalscribe.notes',
-    #'mechanicalscribe.interactives',
-    # Uncomment the next line to enable the admin:
-    # Uncomment the next line to enable admin documentation:
+    'mechanicalscribe.site',
+    'mechanicalscribe.notes',
+    'south'
     # 'django.contrib.admindocs',
 )
 

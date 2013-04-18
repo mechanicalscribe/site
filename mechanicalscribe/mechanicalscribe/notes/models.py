@@ -1,11 +1,14 @@
 from django.db import models
+from django.core.files.storage import FileSystemStorage
 from django.db.models import permalink
 from django.contrib.auth.models import User
 from django.conf import settings
-from mechanicalscribe.site.models import Member
+from mechanicalscribe.site.models import Member, Sticky
 
 import datetime
 import markdown
+
+fs = FileSystemStorage(location='/media/img/stills')
 
 class Note(models.Model):
     #basics
@@ -26,12 +29,21 @@ class Note(models.Model):
     )
     status = models.IntegerField('status', choices=STATUS_CHOICES, default=2)
     allow_comments = models.BooleanField('allow comments', default=True)
-    #categories = models.ManyToManyField(Category, blank=True)    
+    stickies = models.ManyToManyField(Sticky, null=True)
+
+    teaser = models.TextField('Teaser as HTML', blank=True, null=True)
 
     #copy    
     body_markdown = models.TextField('Entry body as Markdown', blank=True, null=True)
     body = models.TextField('Entry body as HTML', blank=True, null=True)
-    
-    def save(self):
+
+    #code
+    code = models.TextField('Javascript to run at end of <body>', blank=True, null=True)
+
+    stills = models.ImageField(upload_to=fs, blank=True, null=True)
+    homepage_width = models.IntegerField(blank=True, null=True)
+    homepage_priority = models.IntegerField(default=0, blank=True, null=True)
+
+    def save(self): 
         self.body = markdown.markdown(self.body_markdown)
-        super(Note, self).save() # Call the "real" save() method.    
+        super(Note, self).save() # Call the "real" save() method.   

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<!-- home {% now "jS F Y H:i" %} -->
+{% block title %}Mechanical Scribe - Home{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    {% for note in notes|dictsortreversed:"homepage_priority" %}
+	<div class="pane" style="float: left">
+    	<div class="list_head">{{ note.short_title|safe }}</div>
+		<a href="/notes/{{ note.slug }}"><img width="{{ note.homepage_width }}" src="{{ MEDIA_URL }}{{note.stills}}" /></a>
+	</div>
+	{% endfor %}  
+{% endblock %}

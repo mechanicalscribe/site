@@ -3,7 +3,9 @@
 {% block title %}Mechanical Scribe - Home{% endblock %}
 
 {% block css %}
-
+    {% for note in notes|dictsortreversed:"published" %}
+        {{ note.styles|safe }}
+    {% endfor %}  
 {% endblock %}
 
 {% block content %}
@@ -18,7 +20,8 @@
 {% endblock %}
 
 {% block javascript %}
-
-{{ template.code|safe }}
-
+    {{ template.code|safe }}
+    {% for note in notes|dictsortreversed:"published" %}
+        {{ note.code|safe }}
+    {% endfor %}  
 {% endblock %}

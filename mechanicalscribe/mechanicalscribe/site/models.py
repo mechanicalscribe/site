@@ -28,6 +28,13 @@ class Sticky(models.Model):
     def __unicode__(self):
         return u'%s' % (self.name)
 
+'''
+class Library(models.Model):
+    name = models.CharField(max_length=50)
+    filename = models.CharField(max_length=50)
+    license = models.CharField(max_length=50)
+'''
+
 class Homepage(models.Model):
     title = models.CharField(max_length=50)
     code = models.TextField(blank=True)
